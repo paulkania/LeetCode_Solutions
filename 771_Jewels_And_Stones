@@ -1,0 +1,25 @@
+https://leetcode.com/problems/jewels-and-stones/description/
+L15 -> user defined function
+L16 -> creat a dictionary(see it's right hand to see the return)
+  #any dummy variable seems to act to take each letter one at a time (when regarding strings)
+L17 -> for each letter in S (dummy_2 is another dummy variable, 
+      1.  does not need to be predefined      2.  functions in by going through each element one at a time
+L18 if the the element of S(your stone) is in the key(LH) of the dictionary (which represents J)
+    then L19 : the value associated with the key is +=1.
+L20   back-indent shows once loop is finished, ie once each element in S is finito, 
+    return the sum of the values in the dictionary (which represent J.)
+EDIT: in re-writing it myself, there was only 1 gloss-over. the dic[x]+=1...only values can be added to dicts
+    , not keys, so the dic[___] += ___ will only ever effect values..it's not something that was on my mind.
+EDIT#2: my main takeaways from the puzzle was the usefulness of dictionaries, the ubiquity (and getting more 
+        comfy with dummy variables, which dont need to be pre-defined.
+def jewels(S,J): 
+	dic = {dummy: 0 for dummy in J}  #returns {'a': 0, 'b': 0, 'c': 0, 'd': 0}
+	for dummy_2 in S:
+		if dummy_2 in dic.keys():
+			dic[dummy_2] +=1
+	return sum(dic.values())
+
+>>> J='abcd'
+>>> S='aaaAbBBBB'
+>>> jewels(S,J)
+4
